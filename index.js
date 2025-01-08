@@ -225,7 +225,7 @@ app.get('/stocks/sort/growth', (req, res) => {
 
 // Endpoint 3
 function filterByExchange(ele, exchange) {
-  return stocks.exchange.toLowerCase() === exchange.toLowerCase();
+  return stocks.exchange.toLowerCase() === exchange;
 }
 app.get('/stocks/filter/exchange', (req, res) => {
   let exchange = req.query.exchange;
