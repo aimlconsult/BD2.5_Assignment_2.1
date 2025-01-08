@@ -227,8 +227,8 @@ app.get('/stocks/sort/growth', (req, res) => {
 function filterByExchange(ele, exchange) {
   return stocks.exchange.toLowerCase() === exchange.toLowerCase();
 }
-app.get('/stocks/filter/:exchange', (req, res) => {
-  let exchange = req.params.exchange;
+app.get('/stocks/filter/exchange', (req, res) => {
+  let exchange = req.query.exchange;
   let result = stocks.filter((ele) => filterByExchange(ele, exchange));
   res.json(result);
 });
@@ -237,8 +237,8 @@ app.get('/stocks/filter/:exchange', (req, res) => {
 function filterByIndustry(ele, industry) {
   return stocks.industry.toLowerCase() === industry.toLowerCase();
 }
-app.get('/stocks/filter/:industry', (req, res) => {
-  let industry = req.params.industry;
+app.get('/stocks/filter/industry', (req, res) => {
+  let industry = req.query.industry;
   let result = stocks.filter((ele) => filterByIndustry(ele, industry));
   res.json(result);
 });
