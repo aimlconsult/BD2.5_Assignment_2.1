@@ -202,11 +202,11 @@ app.get('/stocks/sort/pricing', (req, res) => {
 
 // Endpoint 2
 function sortByGrowthLowToHigh(stock1, stock2) {
-  return stock1.price - stock2.price;
+  return stock1.growth - stock2.growth;
 }
 
 function sortByGrowthHighToLow(stock1, stock2) {
-  return stock2.price - stock1.price;
+  return stock2.growth - stock1.growth;
 }
 
 app.get('/stocks/sort/growth', (req, res) => {
