@@ -224,23 +224,22 @@ app.get('/stocks/sort/growth', (req, res) => {
 });
 
 // Endpoint 3
-function filterByExchange(ele, exchange) {
-  return stocks.exchange.toLowerCase() === exchange;
+function filterByExchange(stock, exchangeQuery) {
+  return stock.exchange.toLowerCase() === exchangeQuery.toLowerCase();
 }
 app.get('/stocks/filter/exchange', (req, res) => {
-  let exchange = req.query.exchange;
-  let result = stocks.filter((ele) => filterByExchange(ele, exchange));
+  let exchangeQuery = req.query.exchange;
+  let result = stocks.filter((stock) => filterByExchange(stock, exchangeQuery));
   res.json(result);
 });
 
-
 // Endpoint 4
-function filterByIndustry(ele, industry) {
-  return stocks.industry.toLowerCase() === industry.toLowerCase();
+function filterByIndustry(stock, industryQuery) {
+  return stock.industry.toUpperCase() === industryQuery.toUpperCase();
 }
 app.get('/stocks/filter/industry', (req, res) => {
-  let industry = req.query.industry;
-  let result = stocks.filter((ele) => filterByIndustry(ele, industry));
+  let industryQuery = req.query.industry;
+  let result = stocks.filter((stock) => filterByIndustry(stock, industryQuery));
   res.json(result);
 });
 
